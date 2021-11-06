@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="box_size">100dp</dimen>
+    <dimen name="line_size">16dp</dimen>
+    <dimen name="win_line_translation">116dp</dimen>
+</resources>

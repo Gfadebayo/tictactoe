@@ -1,0 +1,30 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="BaseTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Default</item>
+        <item name="android:textAppearanceSmall">@style/TextAppearance.AppCompat.Small.Default</item>
+        <item name="textAppearanceButton">@style/TextAppearance.MaterialComponents.Button.Default</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.AppCompat.Body2.Default</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.MaterialComponents.Caption.Default</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.MaterialComponents.Subtitle1.Default</item>
+        <item name="android:textAppearanceMediumInverse">@style/TextAppearance.AppCompat.Medium.Inverse.Default</item>
+    </style>
+
+    <style name="Theme.TicTacToe" parent="BaseTheme">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/box3</item>
+        <item name="colorPrimaryDark">@color/box3</item>
+        <item name="colorPrimaryVariant">@color/box3</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/box5</item>
+        <item name="colorSecondaryVariant">@color/box5</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="colorControlNormal">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>

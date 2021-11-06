@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="box1">#36FF21</color>
+    <color name="box2">#FF1414</color>
+    <color name="box3">#FFB521</color>
+    <color name="box4">#21FF9F</color>
+    <color name="box5">#21FF97</color>
+    <color name="box6">#21ECFF</color>
+    <color name="box7">#2146FF</color>
+    <color name="box8">#D621FF</color>
+    <color name="box9">#FF39B6</color>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/ic_x" android:minLevel="0" android:maxLevel="99" />
+
+    <item android:drawable="@drawable/ic_o" android:minLevel="100" android:maxLevel="200" />
+</level-list>
