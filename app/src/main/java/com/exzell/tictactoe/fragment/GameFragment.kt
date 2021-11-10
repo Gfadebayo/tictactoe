@@ -1,6 +1,5 @@
 package com.exzell.tictactoe.fragment
 
-import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,10 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.transition.ChangeBounds
 import androidx.transition.Transition
+import androidx.transition.TransitionInflater
 import androidx.transition.TransitionManager
-import androidx.transition.TransitionValues
-import com.exzell.tictactoe.GameViewModel
-import com.exzell.tictactoe.MainViewModel
+import com.exzell.tictactoe.viewmodel.GameViewModel
+import com.exzell.tictactoe.viewmodel.MainViewModel
 import com.exzell.tictactoe.R
 import com.exzell.tictactoe.addListener
 import com.exzell.tictactoe.databinding.DialogWinBinding
@@ -44,9 +43,20 @@ class GameFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        TransitionInflater.from(requireContext()).apply {
+            inflateTransition(R.transition.frag_enter).let {
+                enterTransition = it
+                reenterTransition = it
+            }
+
+            inflateTransition(R.transition.frag_exit).let {
+                exitTransition = it
+                returnTransition = it
+            }
+        }
 
         mViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
-        .get(GameViewModel::class.java)
+                .get(GameViewModel::class.java)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

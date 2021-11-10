@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.exzell.tictactoe.databinding.ActivityMainBinding
-import com.exzell.tictactoe.fragment.GameFragment
 import com.exzell.tictactoe.fragment.HomeFragment
+import com.exzell.tictactoe.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

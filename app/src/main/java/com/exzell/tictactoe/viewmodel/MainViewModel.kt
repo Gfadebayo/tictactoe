@@ -1,4 +1,4 @@
-package com.exzell.tictactoe
+package com.exzell.tictactoe.viewmodel
 
 import android.content.Context
 import android.media.AudioAttributes

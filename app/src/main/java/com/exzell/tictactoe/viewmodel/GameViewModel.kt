@@ -1,8 +1,5 @@
-package com.exzell.tictactoe
+package com.exzell.tictactoe.viewmodel
 
-import android.content.Context
-import android.media.AudioAttributes
-import android.media.SoundPool
 import androidx.lifecycle.ViewModel
 import com.exzell.tictactoe.fragment.GameFragment
 import com.exzell.tictactoe.model.Piece

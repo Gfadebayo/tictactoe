@@ -1,5 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+
+    <style name="Theme.Application" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/layer_splash</item>
+        <item name="android:colorBackground">@color/box8</item>
+    </style>
+
     <style name="BaseTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Default</item>

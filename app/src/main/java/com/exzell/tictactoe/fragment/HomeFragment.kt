@@ -29,7 +29,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mBinding.buttonNew.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
+            requireActivity().supportFragmentManager
+                    .beginTransaction()
                     .replace(R.id.fragment_container, GameFragment.getInstance())
                     .addToBackStack(null)
                     .commit()
