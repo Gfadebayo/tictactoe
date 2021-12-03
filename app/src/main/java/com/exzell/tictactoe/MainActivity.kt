@@ -1,13 +1,19 @@
 package com.exzell.tictactoe
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
 import com.exzell.tictactoe.databinding.ActivityMainBinding
 import com.exzell.tictactoe.fragment.HomeFragment
+import com.exzell.tictactoe.fragment.SettingFragment
 import com.exzell.tictactoe.viewmodel.MainViewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ThemeActivity(), SharedPreferences.OnSharedPreferenceChangeListener {
+
+    private lateinit var mViewModel: MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ActivityMainBinding.inflate(layoutInflater).apply {
@@ -15,17 +21,30 @@ class MainActivity : AppCompatActivity() {
             setSupportActionBar(toolbar)
 
             supportFragmentManager.beginTransaction()
-                    .add(fragmentContainer.id, HomeFragment.getInstance())
+                    .replace(fragmentContainer.id, HomeFragment.getInstance())
                     .commit()
 
-            ViewModelProvider(this@MainActivity, ViewModelProvider.NewInstanceFactory())
+
+            val pref = PreferenceManager.getDefaultSharedPreferences(this@MainActivity)
+
+            mViewModel = ViewModelProvider(this@MainActivity, ViewModelProvider.AndroidViewModelFactory(application))
                     .get(MainViewModel::class.java).apply {
-                        prepareSound(R.raw.sound_x, R.raw.sound_o, this@MainActivity)
+                        prepareSound()
+                        enableSound(pref.getBoolean(SettingFragment.KEY_SOUND, true))
                     }
+
+            pref.registerOnSharedPreferenceChangeListener(this@MainActivity)
         }
     }
 
     override fun onBackPressed() {
         if(!supportFragmentManager.popBackStackImmediate()) super.onBackPressed()
+    }
+
+    override fun onSharedPreferenceChanged(pref: SharedPreferences, key: String?) {
+
+        if(key.equals(SettingFragment.KEY_SOUND)){
+            mViewModel.enableSound(pref.getBoolean(SettingFragment.KEY_SOUND, true))
+        }
     }
 }

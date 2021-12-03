@@ -1,5 +1,7 @@
 package com.exzell.tictactoe.fragment
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +10,7 @@ import android.widget.ImageView
 import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
 import androidx.transition.ChangeBounds
 import androidx.transition.Transition
 import androidx.transition.TransitionInflater
@@ -20,7 +23,7 @@ import com.exzell.tictactoe.databinding.DialogWinBinding
 import com.exzell.tictactoe.databinding.FragmentGameBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
-class GameFragment : Fragment() {
+class GameFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     companion object{
         const val LEVEL_X = 10
@@ -57,6 +60,9 @@ class GameFragment : Fragment() {
 
         mViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
                 .get(GameViewModel::class.java)
+
+        PreferenceManager.getDefaultSharedPreferences(requireContext())
+                .registerOnSharedPreferenceChangeListener(this)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -186,5 +192,14 @@ class GameFragment : Fragment() {
 
     private fun switchLevel(){
         mCurrentLevel = if(mCurrentLevel == LEVEL_X) LEVEL_Y else LEVEL_X
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        requireActivity().getPreferences(Context.MODE_PRIVATE)
+                .unregisterOnSharedPreferenceChangeListener(this)
+    }
+
+    override fun onSharedPreferenceChanged(pref: SharedPreferences, key: String?) {
     }
 }

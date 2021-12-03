@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/theme">
+
+        <ListPreference app:title="@string/choose_theme"
+            app:key="KEY_THEME"
+            app:dialogTitle="@string/choose_theme"
+            app:entries="@array/theme_entries"
+            app:entryValues="@array/theme_entry_values"
+            app:persistent="true"  />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/sound">
+
+        <SwitchPreferenceCompat app:title="@string/enable_sound"
+            app:key="KEY_SOUND"
+            app:defaultValue="true"
+            app:persistent="true" />
+
+        <Preference app:title="@string/change_sound_x"
+            app:key="KEY_SOUND_X"
+            app:persistent="true" />
+
+        <Preference app:title="@string/change_sound_y"
+            app:key="KEY_SOUND_Y"
+            app:persistent="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

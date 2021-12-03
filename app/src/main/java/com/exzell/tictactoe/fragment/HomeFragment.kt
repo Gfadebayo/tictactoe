@@ -28,12 +28,23 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mBinding.buttonNew.setOnClickListener {
-            requireActivity().supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, GameFragment.getInstance())
-                    .addToBackStack(null)
-                    .commit()
+        mBinding.apply {
+
+            buttonNew.setOnClickListener {
+                requireActivity().supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, GameFragment.getInstance())
+                        .addToBackStack(null)
+                        .commit()
+            }
+
+            buttonSettings.setOnClickListener {
+                requireActivity().supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, SettingFragment.getInstance())
+                        .addToBackStack(null)
+                        .commit()
+            }
         }
     }
 }
